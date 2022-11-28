@@ -1,0 +1,21 @@
+.main {
+  background-color: rgb(62, 62, 62);
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+@media screen and (min-width: 768px) {
+  .category-container {
+    display: flex;
+    flex-direction: row;
+  }
+}

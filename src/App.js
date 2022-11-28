@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import classes from "./App.module.css";
+import HeadlineNews from "./pages/HeadlineNews";
+import Profile from "./pages/Profile";
+
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className={classes.header}>
+        <ul className={classes["header-nav"]}>
+          <li className={classes["header-nav-li"]}>
+            <Link to="/" className={classes["header-link"]}>
+              <p>Home</p>
+            </Link>
+          </li>
+          <li className={classes["profile-link"]}>
+            <Link to="/profile-page" className={classes["header-link"]}>
+              <p>Profile</p>
+            </Link>
+          </li>
+          <li className={classes["header-nav-button"]}>
+            <button>Logout</button>
+          </li>
+        </ul>
       </header>
-    </div>
+      <Routes>
+        <Route path="/" element={<HeadlineNews />} />
+        <Route path="/profile-page" element={<Profile />} />
+      </Routes>
+    </>
   );
 }
 
