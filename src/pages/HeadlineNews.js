@@ -1,23 +1,44 @@
 import classes from "./HeadlineNews.module.css";
-import NewsCard from "../UI/NewsCard";
+import Category from "../UI/Category";
 
 const HeadlineNews = () => {
+  const apiData = [
+    {
+      image: {
+        thumbnail: {
+          contentUrl: "https://www.bing.com/th?id=OVFT.i3HFPHxjI_Hrtc_ocDDh-C&pid=News"
+        }
+      },
+      name: "Layoffs mount: Twitter, tech, biotech firms chop 900-plus Bay Area jobs",
+      description:
+        "Twitter and other companies have unveiled plans to chop more than 900 Bay Area jobs in a fresh round of tech and biotech layoffs that could jolt the region’s increasingly wobbly economy. In recent",
+    },
+    {
+      image: {
+        thumbnail: {
+          contentUrl: "https://www.bing.com/th?id=OVFT.i3HFPHxjI_Hrtc_ocDDh-C&pid=News"
+        }
+      },
+      name: "Layoffs mount: Twitter, tech, biotech firms chop 900-plus Bay Area jobs",
+      description:
+        "Twitter and other companies have unveiled plans to chop more than 900 Bay Area jobs in a fresh round of tech and biotech layoffs that could jolt the region’s increasingly wobbly economy. In recent",
+    },
+    {
+      image: {
+        thumbnail: {
+          contentUrl: "https://www.bing.com/th?id=OVFT.i3HFPHxjI_Hrtc_ocDDh-C&pid=News"
+        }
+      },
+      name: "Layoffs mount: Twitter, tech, biotech firms chop 900-plus Bay Area jobs",
+      description:
+        "Twitter and other companies have unveiled plans to chop more than 900 Bay Area jobs in a fresh round of tech and biotech layoffs that could jolt the region’s increasingly wobbly economy. In recent",
+    },
+    
+  ];
+
   return (
     <div className={classes.main}>
-      <NewsCard
-        url={
-          "https://www.msn.com/en-us/money/other/apple-hobbled-a-crucial-tool-of-dissent-in-china-weeks-before-widespread-protests-broke-out/ar-AA14Cdti"
-        }
-        imageLink={
-          "https://www.bing.com/th?id=OVFT.MHRCwdfamN9NeUeQpNR11i&pid=News"
-        }
-        name={
-          "Apple hobbled a crucial tool of dissent in China weeks before widespread protests broke out"
-        }
-        description={
-          "Anti-government protests flared in several Chinese cities and on college campuses over the weekend. But the country’s most widespread show of public dissent in decades will have to manage without a"
-        }
-      />
+      <Category data={apiData} />
     </div>
   );
 };

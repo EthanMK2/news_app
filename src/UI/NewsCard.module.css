@@ -8,32 +8,29 @@
   border-color: black;
   border-width: 1px;
   border-style: solid;
+  font-size: small;
 }
 
 .image {
-  width: 7rem;
-  float: left;
+  width: 100%;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
 }
 
 .name {
-    color: black;
-    font-size: larger;
-    font-weight: 400;
+  color: black;
+  font-size: larger;
+  font-weight: 400;
 }
 
 .divider {
-    width: 60%;
-    color: gray;
-    margin-top: 2rem;
+  width: 60%;
+  color: gray;
+  margin-top: 2rem;
 }
 
 .description {
-    color: rgb(149, 149, 149);
-    padding: 0 1rem;
+  color: rgb(149, 149, 149);
+  padding: 0 1rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -47,5 +44,31 @@
     border-color: black;
     border-width: 1px;
     border-style: solid;
+  }
+
+  .image {
+    width: 7rem;
+    float: left;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  .name {
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  .divider {
+    width: 60%;
+    color: gray;
+    margin-top: 2rem;
+  }
+
+  .description {
+    color: rgb(149, 149, 149);
+    padding: 0 1rem;
+    font-size: medium;
   }
 }
