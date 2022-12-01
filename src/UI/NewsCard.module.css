@@ -1,18 +1,19 @@
 .card {
-  width: 80%;
+  margin: 0;
   height: fit-content;
   background-color: white;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 10 10px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.8);
   border-color: black;
   border-width: 1px;
   border-style: solid;
   font-size: small;
+  margin: 1rem;
 }
 
 .image {
-  width: 100%;
+  width: 25vw;
   border-radius: 10px;
 }
 

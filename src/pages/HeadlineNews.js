@@ -39,6 +39,9 @@ const HeadlineNews = () => {
   return (
     <div className={classes.main}>
       <Category data={apiData} />
+      <Category data={apiData} />
+      <Category data={apiData} />
+      <Category data={apiData} />
     </div>
   );
 };

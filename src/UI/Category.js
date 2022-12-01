@@ -5,7 +5,7 @@ import classes from "./Category.module.css";
 const Category = (props) => {
   const newsList = props.data.map((story) => {
     return (
-      <li className={null}>
+      <li className={classes["news-card-li"]}>
         <NewsCard
           imageLink={story.image.thumbnail.contentUrl}
           name={story.name}
@@ -14,7 +14,7 @@ const Category = (props) => {
       </li>
     );
   });
-  return <ul className={null}>{newsList}</ul>;
+  return <ul className={classes["card-ul"]}>{newsList}</ul>;
 };
 
 export default Category;
