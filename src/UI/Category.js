@@ -7,6 +7,7 @@ const Category = (props) => {
     return (
       <li className={classes["news-card-li"]}>
         <NewsCard
+          url={story.url}
           imageLink={story.image.thumbnail.contentUrl}
           name={story.name}
           description={story.description}
