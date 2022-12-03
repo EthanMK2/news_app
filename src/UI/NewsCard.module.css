@@ -34,10 +34,24 @@
   padding: 0 1rem;
 }
 
+.provider {
+  display: flex;
+  align-items: center;
+}
+
+.provider-image {
+  width: 25px;
+  margin-left: auto;
+}
+
+.provider-name {
+  margin-right: auto;
+}
+
 @media screen and (min-width: 768px) {
   .card {
     width: 18rem;
-    height: 24rem;
+    height: 26rem;
     background-color: rgb(255, 255, 255);
     border-radius: 12px;
     text-align: center;

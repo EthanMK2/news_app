@@ -15,7 +15,7 @@ function App() {
             </Link>
           </li>
           <li className={classes["profile-link"]}>
-            <Link to="/profile-page" className={classes["header-link"]}>
+            <Link to="/profile" className={classes["header-link"]}>
               <p>Profile</p>
             </Link>
           </li>
@@ -26,7 +26,7 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<HeadlineNews />} />
-        <Route path="/profile-page" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </>
   );
