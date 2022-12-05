@@ -1,8 +1,10 @@
 import classes from "./HeadlineNews.module.css";
 import Category from "../UI/Category";
 
+import { getNewsByCategory } from "../api";
+
 const HeadlineNews = () => {
-  // api data will be "value" key name in api response json 
+  // api data will be "value" key name in api response json
   const apiData = [
     {
       image: {
@@ -20,10 +22,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -42,10 +45,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -64,10 +68,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -86,10 +91,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -108,10 +114,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -130,10 +137,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -152,10 +160,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -174,10 +183,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -196,10 +206,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -218,10 +229,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -240,10 +252,11 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
     {
@@ -262,22 +275,26 @@ const HeadlineNews = () => {
           name: "News Outlet",
           image: {
             thumbnail: {
-              contentUrl: "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news"
-            }
-          }
-        }
+              contentUrl:
+                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
+            },
+          },
+        },
       },
     },
-    
-    
   ];
+
+  //const techNewsData = getNewsByCategory()
+  //const businessNewsData = getNewsByCategory("Business");
+  //const entertainmentNewsData = getNewsByCategory("Entertainment");
+
+  //console.log(techNewsData)
 
   return (
     <div className={classes.main}>
-      <Category title="Technology" data={apiData} />
-      <Category title="Science" data={apiData} />
-      <Category title="Business" data={apiData} />
-      <Category title="Entertainment" data={apiData} />
+      <Category title="Technology" data={[]} />
+      <Category title="Business" data={[]} />
+      <Category title="Entertainment" data={[]} />
     </div>
   );
 };

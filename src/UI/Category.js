@@ -2,7 +2,10 @@ import NewsCard from "./NewsCard";
 import classes from "./Category.module.css";
 
 const Category = (props) => {
-  const newsList = props.data.map((story) => {
+  const newsArray = props.data
+  //console.log(newsArray)
+
+  const newsList = [].map((story) => {
     return (
       <li className={classes["news-card-li"]}>
         <NewsCard
