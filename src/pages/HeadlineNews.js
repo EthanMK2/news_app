@@ -1,300 +1,65 @@
 import classes from "./HeadlineNews.module.css";
 import Category from "../UI/Category";
-
-import { getNewsByCategory } from "../api";
+import NewsCard from "../UI/NewsCard";
+import { useEffect, useState } from "react";
 
 const HeadlineNews = () => {
-  // api data will be "value" key name in api response json
-  const apiData = [
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-    {
-      image: {
-        thumbnail: {
-          contentUrl:
-            "https://www.bing.com/th?id=OVFT.PYV_stc1fVpzLYOpfa5YkC&pid=News",
-        },
-      },
-      name: "Apple Spent $84,000 on Twitter Ads the Same Day Elon Tweeted It 'Mostly Stopped' Advertising There, New Data Shows",
-      url: "https://www.msn.com/en-us/news/technology/apple-spent-84000-on-twitter-ads-the-same-day-elon-tweeted-it-mostly-stopped-advertising-there-new-data-shows/ar-AA14KCag",
-      description:
-        "On Monday, Elon Musk picked a public fight with Apple, accusing the company of freezing its advertising on Twitter and wondering aloud if the alleged pause was because “they hate free speech in",
-      provider: {
-        0: {
-          name: "News Outlet",
-          image: {
-            thumbnail: {
-              contentUrl:
-                "https://www.bing.com/th?id=ODF.ighWNnrr5MMFUs8WKMme2A&pid=news",
-            },
-          },
-        },
-      },
-    },
-  ];
+  const [newsArray, setNewsArray] = useState([]);
 
-  //const techNewsData = getNewsByCategory()
-  //const businessNewsData = getNewsByCategory("Business");
-  //const entertainmentNewsData = getNewsByCategory("Entertainment");
+  useEffect(() => {
+    const options = {
+      method: "GET",
+      headers: {
+        "X-BingApis-SDK": "true",
+        "X-RapidAPI-Key": "61256fc61bmsh390a91d168300b7p11bb8fjsn00481c67e711",
+        "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+      },
+    };
 
-  //console.log(techNewsData)
+    fetch(
+      `https://bing-news-search1.p.rapidapi.com/news?category=Technology&safeSearch=Strict&textFormat=Raw`,
+      options
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        let arr;
+        arr = JSON.parse(result);
+        arr = arr.value;
+        setNewsArray(arr);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
+
+  console.log("mounted");
+
+  const newsList = newsArray?.map((story) => {
+    return (
+      <li className={classes["news-card-li"]} key={Math.random()}>
+        <NewsCard
+          url={story.url}
+          imageLink={
+            story?.image?.thumbnail?.contentUrl
+              ? story?.image?.thumbnail?.contentUrl
+              : null
+          }
+          providerImageLink={
+            story?.provider[0]?.image?.thumbnail?.contentUrl
+              ? story?.provider[0]?.image?.thumbnail?.contentUrl
+              : null
+          }
+          providerName={story?.provider[0].name ? story?.provider[0].name : ""}
+          name={story?.name}
+          description={story?.description}
+        />
+      </li>
+    );
+  });
 
   return (
     <div className={classes.main}>
-      <Category title="Technology" data={[]} />
-      <Category title="Business" data={[]} />
-      <Category title="Entertainment" data={[]} />
+      <Category title="Technology" newsList={newsList} />
     </div>
   );
 };
