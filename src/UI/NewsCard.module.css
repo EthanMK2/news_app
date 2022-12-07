@@ -9,6 +9,7 @@
   border-width: 1px;
   border-style: solid;
   font-size: small;
+  font-family: "News Cycle", sans-serif;
   margin: 1rem;
 }
 
@@ -20,7 +21,6 @@
 .name {
   color: black;
   font-size: larger;
-  font-weight: 400;
 }
 
 .divider {
@@ -37,7 +37,6 @@
 .provider {
   display: flex;
   align-items: center;
-  margin-top: auto;
 }
 
 .provider-image {
@@ -60,6 +59,8 @@
     border-color: black;
     border-width: 1px;
     border-style: solid;
+
+    position: relative;
   }
 
   .image {
@@ -69,11 +70,13 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
     margin-top: 0.5rem;
     margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
   .name {
     color: black;
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
   }
 
   .divider {
@@ -86,5 +89,15 @@
     color: rgb(149, 149, 149);
     padding: 0 1rem;
     font-size: medium;
+  }
+
+  .provider {
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
   }
 }
