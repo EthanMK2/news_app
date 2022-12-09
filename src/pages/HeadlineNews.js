@@ -17,7 +17,7 @@ const HeadlineNews = () => {
     };
 
     fetch(
-      `https://bing-news-search1.p.rapidapi.com/news?category=Technology&safeSearch=Strict&textFormat=Raw`,
+      `https://bing-news-search1.p.rapidapi.com/news?count=20&category=Technology&headlineCount=20&safeSearch=Strict&textFormat=Raw`,
       options
     )
       .then((response) => response.text())
