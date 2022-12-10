@@ -14,12 +14,13 @@
   
   .header-nav-li {
     list-style: none;
-    margin: 0;
+    margin: 0 0.5rem;
     border-radius: 10px;
   }
-  
+
   .header-nav-li p {
     margin: 0.5rem 0;
+    color: white;
   }
 
   .header-home {
@@ -54,9 +55,24 @@
     }
   
     .header-nav-li {
-      padding: 0 1rem;
+      padding: 0.1rem 0.5rem;
+      transition: 0.15s;
+      background-color: white;
+    }
+
+    .header-nav-li:hover {
+      background-color: rgb(0, 81, 0);
     }
   
+    .header-nav-li:hover p {
+      color: white;
+    }  
+  
+    .header-nav-li p {
+      margin: 0.5rem 0;
+      color: green;
+    }
+
     .profile-link {
       margin-left: auto;
       padding-right: 1rem;
