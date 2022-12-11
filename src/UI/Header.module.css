@@ -53,6 +53,12 @@
       display: flex;
       flex-direction: row;
     }
+
+    .header-home {
+      list-style: none;
+      margin: 0;
+      margin-right: auto;
+    }
   
     .header-nav-li {
       padding: 0.1rem 0.5rem;
