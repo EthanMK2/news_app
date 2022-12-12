@@ -1,4 +1,5 @@
 import classes from "./NewsCard.module.css";
+import placeholerImage from "../assets/images/image_placeholder.png"
 
 const NewsCard = (props) => {
   let description = props.description;
@@ -8,11 +9,18 @@ const NewsCard = (props) => {
   }
 
   const image = props.imageLink ? (
-    <img src={props.imageLink} className={classes.image} alt="News story cover" />
+    <img
+      src={props.imageLink}
+      className={classes.image}
+      alt="News story cover"
+    />
   ) : (
-    ""
+    <img
+      src={placeholerImage}
+      alt="placeholder newspaper"
+      className={classes.image}
+    />
   );
-
   const providerImage = props.providerImageLink ? (
     <img
       src={props.providerImageLink}
@@ -20,7 +28,11 @@ const NewsCard = (props) => {
       alt="News outlet logo"
     ></img>
   ) : (
-    ""
+    <img
+      src="../assets/image_placeholder.png"
+      alt="placeholder newspaper"
+      className={classes.image}
+    />
   );
 
   return (
