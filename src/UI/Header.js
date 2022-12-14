@@ -12,32 +12,32 @@ const Header = () => {
           </Link>
         </li>
 
-        <Link to="/" className={classes["header-link"]}>
+        <Link to="/entertainment" className={classes["header-link"]}>
           <li className={classes["header-nav-li"]}>
             <p>Entertainment</p>
           </li>
         </Link>
-        <Link to="/" className={classes["header-link"]}>
+        <Link to="/business" className={classes["header-link"]}>
           <li className={classes["header-nav-li"]}>
             <p>Business</p>
           </li>
         </Link>
-        <Link to="/" className={classes["header-link"]}>
+        <Link to="/science" className={classes["header-link"]}>
           <li className={classes["header-nav-li"]}>
             <p>Science</p>
           </li>
         </Link>
-        <Link to="/" className={classes["header-link"]}>
+        <Link to="/technology" className={classes["header-link"]}>
           <li className={classes["header-nav-li"]}>
             <p>Technology</p>
           </li>
         </Link>
-        <Link to="/" className={classes["header-link"]}>
+        <Link to="/sports" className={classes["header-link"]}>
           <li className={classes["header-nav-li"]}>
             <p>Sports</p>
           </li>
         </Link>
-        <Link to="/" className={classes["header-link"]}>
+        <Link to="/health" className={classes["header-link"]}>
           <li className={classes["header-nav-li"]}>
             <p>Health</p>
           </li>

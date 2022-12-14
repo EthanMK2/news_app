@@ -29,9 +29,9 @@ const NewsCard = (props) => {
     ></img>
   ) : (
     <img
-      src="../assets/image_placeholder.png"
+      src={placeholerImage}
       alt="placeholder newspaper"
-      className={classes.image}
+      className={classes["provider-image"]}
     />
   );
 

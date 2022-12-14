@@ -58,6 +58,7 @@
       list-style: none;
       margin: 0;
       margin-right: auto;
+      padding-left: 1rem;
     }
   
     .header-nav-li {

@@ -1,9 +1,10 @@
-import classes from "./HeadlineNews.module.css";
-import Category from "../UI/Category";
+import { useState, useEffect } from "react";
 import NewsCard from "../UI/NewsCard";
-import { useEffect, useState } from "react";
+import Category from "../UI/Category";
 
-const HeadlineNews = () => {
+import classes from "./CategoryPage.module.css";
+
+const CategoryPage = (props) => {
   const [newsArray, setNewsArray] = useState([]);
 
   useEffect(() => {
@@ -17,26 +18,24 @@ const HeadlineNews = () => {
     };
 
     fetch(
-      "https://bing-news-search1.p.rapidapi.com/news/trendingtopics?textFormat=Raw&safeSearch=Strict",
+      `https://bing-news-search1.p.rapidapi.com/news?count=20&category=${props.category}&headlineCount=20&safeSearch=Strict&textFormat=Raw`,
       options
     )
       .then((response) => response.json())
       .then((result) => {
         let arr;
         arr = result.value;
-        console.log(result);
-        //setNewsArray(arr);  WORK IN PROGRESS
+        setNewsArray(arr);
+        console.log(arr);
       })
       .catch((error) => {
         console.log(error.message);
       });
-  }, []);
+  }, [props.category]);
 
   console.log("mounted");
 
   const newsList = newsArray?.map((story) => {
-    console.log(story)
-
     return (
       <li className={classes["news-card-li"]} key={Math.random()}>
         <NewsCard
@@ -61,9 +60,9 @@ const HeadlineNews = () => {
 
   return (
     <div className={classes.main}>
-      <Category title="Headline News" newsList={newsList} />
+      <Category title={props.category} newsList={newsList} />
     </div>
   );
 };
 
-export default HeadlineNews;
+export default CategoryPage;
