@@ -1,0 +1,23 @@
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+  width: 15rem;
+  height: 18rem;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.8);
+}
+
+.image {
+  width: 8rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.8);
+}
+
+.name {
+  font-family: "News Cycle", sans-serif;
+}
+
+.text {
+  font-family: "News Cycle", sans-serif;
+}

@@ -58,8 +58,15 @@ const CategoryPage = (props) => {
     );
   });
 
+  // for loading or when no results appear
+  let mainListClasses = `${classes.main}`
+
+  if (newsList.length < 1) {
+    mainListClasses = `${classes["empty-main"]}`
+  }
+
   return (
-    <div className={classes.main}>
+    <div className={mainListClasses}>
       <Category title={props.category} newsList={newsList} />
     </div>
   );

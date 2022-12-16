@@ -1,6 +1,26 @@
+.title {
+  background-color: rgb(62, 62, 62);
+  margin: 0;
+  text-align: center;
+}
+
+.list {
+  padding: 0;
+}
+
 .main {
   background-color: rgb(62, 62, 62);
   height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.empty-main {
+  background-color: rgb(62, 62, 62);
+  height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -51,5 +71,12 @@
 
   .news-card-li:hover {
     transform: scale(1.1);
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1080px;
+    padding: 0;
   }
 }

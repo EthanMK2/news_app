@@ -1,9 +1,8 @@
-import classes from "./App.module.css";
-import HeadlineNews from "./pages/HeadlineNews";
+import TrendingNews from "./pages/TrendingNews";
 import Profile from "./pages/Profile";
 import Header from "./UI/Header";
 
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import CategoryPage from "./pages/CategoryPage";
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<HeadlineNews />} />
+        <Route path="/" element={<TrendingNews />} />
         <Route path="/entertainment" element={<CategoryPage category="Entertainment" />} />
         <Route path="/business" element={<CategoryPage category="Business" />} />
         <Route path="/science" element={<CategoryPage category="Science" />} />

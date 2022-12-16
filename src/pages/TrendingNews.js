@@ -1,7 +1,6 @@
-import classes from "./HeadlineNews.module.css";
-import Category from "../UI/Category";
-import NewsCard from "../UI/NewsCard";
+import classes from "./TrendingNews.module.css";
 import { useEffect, useState } from "react";
+import TrendingCard from "../UI/TrendingCard";
 
 const HeadlineNews = () => {
   const [newsArray, setNewsArray] = useState([]);
@@ -25,7 +24,7 @@ const HeadlineNews = () => {
         let arr;
         arr = result.value;
         console.log(result);
-        //setNewsArray(arr);  WORK IN PROGRESS
+        setNewsArray(arr);
       })
       .catch((error) => {
         console.log(error.message);
@@ -35,34 +34,33 @@ const HeadlineNews = () => {
   console.log("mounted");
 
   const newsList = newsArray?.map((story) => {
-    console.log(story)
 
     return (
       <li className={classes["news-card-li"]} key={Math.random()}>
-        <NewsCard
-          url={story.url}
-          imageLink={
-            story?.image?.thumbnail?.contentUrl
-              ? story?.image?.thumbnail?.contentUrl
-              : null
-          }
-          providerImageLink={
-            story?.provider[0]?.image?.thumbnail?.contentUrl
-              ? story?.provider[0]?.image?.thumbnail?.contentUrl
-              : null
-          }
-          providerName={story?.provider[0].name ? story?.provider[0].name : ""}
+        <TrendingCard
+          image={story?.image?.url}
           name={story?.name}
-          description={story?.description}
+          text={story?.query?.text}
+          url={story?.newsSearchUrl}
         />
       </li>
     );
   });
 
+  // for loading or when no results appear
+  let mainListClasses = `${classes.main}`;
+
+  if (newsList.length < 1) {
+    mainListClasses = `${classes["empty-main"]}`;
+  }
+
   return (
-    <div className={classes.main}>
-      <Category title="Headline News" newsList={newsList} />
-    </div>
+    <>
+      <h1 className={classes.title}>Trending News</h1>
+      <div className={mainListClasses}>
+        <ul className={classes.list}>{newsList}</ul>
+      </div>
+    </>
   );
 };
 
