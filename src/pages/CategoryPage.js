@@ -18,7 +18,7 @@ const CategoryPage = (props) => {
     };
 
     fetch(
-      `https://bing-news-search1.p.rapidapi.com/news?count=20&category=${props.category}&headlineCount=20&safeSearch=Strict&textFormat=Raw`,
+      `https://bing-news-search1.p.rapidapi.com/news?count=20&offset=0&category=${props.category}&safeSearch=Strict&textFormat=Raw`,
       options
     )
       .then((response) => response.json())
@@ -59,15 +59,19 @@ const CategoryPage = (props) => {
   });
 
   // for loading or when no results appear
-  let mainListClasses = `${classes.main}`
+  let mainListClasses = `${classes.main}`;
 
   if (newsList.length < 1) {
-    mainListClasses = `${classes["empty-main"]}`
+    mainListClasses = `${classes["empty-main"]}`;
   }
 
+  // FIXME: header will be the new sidebar. header will be search bar with profile/login/logout ect.
   return (
     <div className={mainListClasses}>
-      <Category title={props.category} newsList={newsList} />
+      <div className={classes["title-div"]}>
+        <h2 className={classes.title}>{props.category}</h2>
+      </div>
+      <Category newsList={newsList} />
     </div>
   );
 };

@@ -17,8 +17,9 @@
 
 .title {
   color: white;
-  letter-spacing: 0.15rem;
-  font-size: 2rem;
+  letter-spacing: 0.05rem;
+  font-size: 3rem;
+  position: absolute;
 }
 
 @media screen and (min-width: 768px) {
