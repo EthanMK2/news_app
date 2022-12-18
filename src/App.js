@@ -1,14 +1,24 @@
 import TrendingNews from "./pages/TrendingNews";
 import Profile from "./pages/Profile";
 import Header from "./UI/Header";
+import SearchResults from "./pages/SearchResults";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import CategoryPage from "./pages/CategoryPage";
+import { useState } from "react";
 
 function App() {
+  const [searchText, setSearchText] = useState(null);
+  const navigate = useNavigate();
+
+  const searchHandler = (text) => {
+    setSearchText(text);  // may not update in time for render?
+    navigate("/searchresults");
+  }
+
   return (
     <>
-      <Header />
+      <Header searchHandler={searchHandler} />
       <Routes>
         <Route path="/" element={<TrendingNews />} />
         <Route path="/entertainment" element={<CategoryPage category="Entertainment" />} />
@@ -18,6 +28,7 @@ function App() {
         <Route path="/sports" element={<CategoryPage category="Sports" />} />
         <Route path="/health" element={<CategoryPage category="Health" />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/searchresults" element={<SearchResults searchQuery={searchText} />} />
       </Routes>
     </>
   );

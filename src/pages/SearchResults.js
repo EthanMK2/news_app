@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import NewsCard from "../UI/NewsCard";
 import Category from "../UI/Category";
 
-import classes from "./CategoryPage.module.css";
+import classes from "./SearchResults.module.css";
 
-const CategoryPage = (props) => {
+const SearchResults = (props) => {
   const [newsArray, setNewsArray] = useState([]);
 
   useEffect(() => {
+
     const options = {
       method: "GET",
       headers: {
@@ -18,7 +19,7 @@ const CategoryPage = (props) => {
     };
 
     fetch(
-      `https://bing-news-search1.p.rapidapi.com/news?count=20&offset=0&category=${props.category}&safeSearch=Strict&textFormat=Raw`,
+        `https://bing-news-search1.p.rapidapi.com/news/search?q=${props.searchQuery}&count=30&freshness=Day&textFormat=Raw&safeSearch=Strict`,
       options
     )
       .then((response) => response.json())
@@ -31,7 +32,7 @@ const CategoryPage = (props) => {
       .catch((error) => {
         console.log(error.message);
       });
-  }, [props.category]);
+  }, [props.searchQuery]);
 
   console.log("mounted");
 
@@ -65,14 +66,16 @@ const CategoryPage = (props) => {
     mainListClasses = `${classes["empty-main"]}`;
   }
 
+  const searchTitle = props.searchQuery.replace(/%20/g, " ")
+
   return (
     <div className={mainListClasses}>
       <div className={classes["title-div"]}>
-        <h2 className={classes.title}>{props.category}</h2>
+        <h2 className={classes.title}>{`Article results for "${searchTitle}"`}</h2>
       </div>
       <Category newsList={newsList} />
     </div>
   );
 };
 
-export default CategoryPage;
+export default SearchResults;

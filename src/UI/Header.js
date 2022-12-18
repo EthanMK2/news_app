@@ -1,8 +1,20 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 import classes from "./Header.module.css";
 
-const Header = () => {
+const Header = (props) => {
+  const searchRef = useRef();
+
+  const searchHandler = (event) => {
+    event.preventDefault();
+
+    const currentSearch = searchRef.current.value;
+    const searchQuery = currentSearch.replace(/\s/g, "%20");
+
+    props.searchHandler(searchQuery);
+  };
+
   return (
     <header className={classes.header}>
       <section className={classes["top-header"]}>
@@ -24,8 +36,11 @@ const Header = () => {
           className={classes.searchbar}
           id="searchbar"
           placeholder="Search for news about..."
+          ref={searchRef}
         />
-        <button className={classes["search-button"]}>Search</button>
+        <button onClick={searchHandler} className={classes["search-button"]}>
+          Search
+        </button>
       </form>
       <ul className={classes["header-nav"]}>
         <Link to="/entertainment" className={classes["header-link"]}>
