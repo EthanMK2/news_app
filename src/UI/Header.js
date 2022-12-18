@@ -5,13 +5,29 @@ import classes from "./Header.module.css";
 const Header = () => {
   return (
     <header className={classes.header}>
-      <ul className={classes["header-nav"]}>
-        <li className={classes["header-home"]}>
+      <section className={classes["top-header"]}>
+        <div className={classes["header-home"]}>
           <Link to="/" className={classes["header-link"]}>
             <h1>News Website</h1>
           </Link>
-        </li>
-
+        </div>
+        <div className={classes["profile-links"]}>
+          <Link to="/profile" className={classes["header-link"]}>
+            <p>Profile</p>
+          </Link>
+          <button>Logout</button>
+        </div>
+      </section>
+      <form>
+        <input
+          type="text"
+          className={classes.searchbar}
+          id="searchbar"
+          placeholder="Search for news about..."
+        />
+        <button className={classes["search-button"]}>Search</button>
+      </form>
+      <ul className={classes["header-nav"]}>
         <Link to="/entertainment" className={classes["header-link"]}>
           <li className={classes["header-nav-li"]}>
             <p>Entertainment</p>
@@ -42,15 +58,6 @@ const Header = () => {
             <p>Health</p>
           </li>
         </Link>
-
-        <li className={classes["profile-link"]}>
-          <Link to="/profile" className={classes["header-link"]}>
-            <p>Profile</p>
-          </Link>
-        </li>
-        <li className={classes["header-nav-button"]}>
-          <button>Logout</button>
-        </li>
       </ul>
     </header>
   );
