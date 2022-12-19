@@ -1,9 +1,13 @@
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import classes from "./Header.module.css";
 
 const Header = (props) => {
+  const activeLinkHelper = ({isActive}) => {
+    return (isActive ? classes["header-nav-active"] : classes["header-navlink"]);
+  };
+
   const searchRef = useRef();
 
   const searchHandler = (event) => {
@@ -43,36 +47,36 @@ const Header = (props) => {
         </button>
       </form>
       <ul className={classes["header-nav"]}>
-        <Link to="/entertainment" className={classes["header-link"]}>
-          <li className={classes["header-nav-li"]}>
+        <NavLink to="/entertainment" className={activeLinkHelper}>
+          <li>
             <p>Entertainment</p>
           </li>
-        </Link>
-        <Link to="/business" className={classes["header-link"]}>
-          <li className={classes["header-nav-li"]}>
+        </NavLink>
+        <NavLink to="/business" className={activeLinkHelper}>
+          <li>
             <p>Business</p>
           </li>
-        </Link>
-        <Link to="/science" className={classes["header-link"]}>
-          <li className={classes["header-nav-li"]}>
+        </NavLink>
+        <NavLink to="/science" className={activeLinkHelper}>
+          <li>
             <p>Science</p>
           </li>
-        </Link>
-        <Link to="/technology" className={classes["header-link"]}>
-          <li className={classes["header-nav-li"]}>
+        </NavLink>
+        <NavLink to="/technology" className={activeLinkHelper}>
+          <li>
             <p>Technology</p>
           </li>
-        </Link>
-        <Link to="/sports" className={classes["header-link"]}>
-          <li className={classes["header-nav-li"]}>
+        </NavLink>
+        <NavLink to="/sports" className={activeLinkHelper}>
+          <li>
             <p>Sports</p>
           </li>
-        </Link>
-        <Link to="/health" className={classes["header-link"]}>
-          <li className={classes["header-nav-li"]}>
+        </NavLink>
+        <NavLink to="/health" className={activeLinkHelper}>
+          <li>
             <p>Health</p>
           </li>
-        </Link>
+        </NavLink>
       </ul>
     </header>
   );
