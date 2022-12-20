@@ -1,9 +1,13 @@
-import { useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useRef, useContext, useEffect } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import AuthContext from "../store/auth-context";
 
 import classes from "./Header.module.css";
 
 const Header = (props) => {
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const activeLinkHelper = ({isActive}) => {
     return (isActive ? classes["header-nav-active"] : classes["header-navlink"]);
   };
@@ -19,6 +23,12 @@ const Header = (props) => {
     props.searchHandler(searchQuery);
   };
 
+  const logoutHandler = () => {
+    authCtx.logout();
+  }
+
+  const isLoggedIn = authCtx.isLoggedIn;
+
   return (
     <header className={classes.header}>
       <section className={classes["top-header"]}>
@@ -27,12 +37,17 @@ const Header = (props) => {
             <h1>News Website</h1>
           </Link>
         </div>
-        <div className={classes["profile-links"]}>
+        {!isLoggedIn ? <div className={classes["profile-links"]}>
+          <Link to="/auth" className={classes["header-link"]}>
+            <p>Profile</p>
+          </Link>
+          <button onClick={() => {navigate("/auth")}}>Login</button>
+        </div> : <div className={classes["profile-links"]}>
           <Link to="/profile" className={classes["header-link"]}>
             <p>Profile</p>
           </Link>
-          <button>Logout</button>
-        </div>
+          <button onClick={logoutHandler}>Logout</button>
+        </div>}
       </section>
       <form>
         <input

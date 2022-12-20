@@ -2,6 +2,7 @@ import TrendingNews from "./pages/TrendingNews";
 import Profile from "./pages/Profile";
 import Header from "./UI/Header";
 import SearchResults from "./pages/SearchResults";
+import AuthPage from "./pages/AuthPage";
 
 import { Routes, Route, useNavigate } from "react-router-dom";
 import CategoryPage from "./pages/CategoryPage";
@@ -18,17 +19,17 @@ function App() {
 
   return (
     <>
-      <Header searchHandler={searchHandler} />
       <Routes>
-        <Route path="/" element={<TrendingNews />} />
-        <Route path="/entertainment" element={<CategoryPage category="Entertainment" />} />
-        <Route path="/business" element={<CategoryPage category="Business" />} />
-        <Route path="/science" element={<CategoryPage category="Science" />} />
-        <Route path="/technology" element={<CategoryPage category="Technology" />} />
-        <Route path="/sports" element={<CategoryPage category="Sports" />} />
-        <Route path="/health" element={<CategoryPage category="Health" />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/searchresults" element={<SearchResults searchQuery={searchText} />} />
+        <Route path="/" element={<><Header searchHandler={searchHandler} /><TrendingNews /></>} />
+        <Route path="/entertainment" element={<><Header searchHandler={searchHandler} /><CategoryPage category="Entertainment" /></>} />
+        <Route path="/business" element={<><Header searchHandler={searchHandler} /><CategoryPage category="Business" /></>} />
+        <Route path="/science" element={<><Header searchHandler={searchHandler} /><CategoryPage category="Science" /></>} />
+        <Route path="/technology" element={<><Header searchHandler={searchHandler} /><CategoryPage category="Technology" /></>} />
+        <Route path="/sports" element={<><Header searchHandler={searchHandler} /><CategoryPage category="Sports" /></>} />
+        <Route path="/health" element={<><Header searchHandler={searchHandler} /><CategoryPage category="Health" /></>} />
+        <Route path="/profile" element={<><Header searchHandler={searchHandler} /><Profile /></>} />
+        <Route path="/searchresults" element={<><Header searchHandler={searchHandler} /><SearchResults searchQuery={searchText} /></>} />
+        <Route path="/auth" element={<AuthPage />} />
       </Routes>
     </>
   );
