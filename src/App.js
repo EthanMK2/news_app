@@ -3,6 +3,7 @@ import Profile from "./pages/Profile";
 import Header from "./UI/Header";
 import SearchResults from "./pages/SearchResults";
 import AuthPage from "./pages/AuthPage";
+import NotFound from "./pages/NotFound";
 
 import { Routes, Route, useNavigate } from "react-router-dom";
 import CategoryPage from "./pages/CategoryPage";
@@ -13,7 +14,7 @@ function App() {
   const navigate = useNavigate();
 
   const searchHandler = (text) => {
-    setSearchText(text);  // may not update in time for render?
+    setSearchText(text); 
     navigate("/searchresults");
   }
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/profile" element={<><Header searchHandler={searchHandler} /><Profile /></>} />
         <Route path="/searchresults" element={<><Header searchHandler={searchHandler} /><SearchResults searchQuery={searchText} /></>} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="*" element={<NotFound />}/>
       </Routes>
     </>
   );
