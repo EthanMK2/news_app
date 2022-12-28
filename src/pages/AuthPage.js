@@ -65,20 +65,17 @@ const AuthPage = () => {
     const enteredEmail = emailRef.current.value;
     const enteredPassword = passwordRef.current.value;
 
-    fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=key",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          email: enteredEmail,
-          password: enteredPassword,
-          returnSecureToken: true,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    fetch("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=key", {
+      method: "POST",
+      body: JSON.stringify({
+        email: enteredEmail,
+        password: enteredPassword,
+        returnSecureToken: true,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -146,11 +143,19 @@ const AuthPage = () => {
             </button>
           )}
           {isLoginForm ? (
-            <p onClick={formSettingHandler} style={{ cursor: "pointer" }}>
+            <p
+              onClick={formSettingHandler}
+              style={{ cursor: "pointer" }}
+              className={classes["switch-auth-button"]}
+            >
               Don't Have An Account? Create Account.
             </p>
           ) : (
-            <p onClick={formSettingHandler} style={{ cursor: "pointer" }}>
+            <p
+              onClick={formSettingHandler}
+              style={{ cursor: "pointer" }}
+              className={classes["switch-auth-button"]}
+            >
               Already Have An Account? Login.
             </p>
           )}
