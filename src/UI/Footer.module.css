@@ -1,0 +1,52 @@
+footer {
+  box-sizing: border-box;
+  background: rgb(62, 62, 62);
+  height: fit-content;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 0.8rem;
+}
+
+p {
+  margin: 0;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+a {
+  color: white;
+  padding: 0.5rem;
+}
+
+a:hover,
+a:active {
+  color: rgb(175, 175, 175);
+  cursor: pointer;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.portfolio-link {
+  background: rgb(0, 156, 0);
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  a {
+    padding: 0.5rem 0.8rem;
+  }
+
+  footer {
+    height: 8rem;
+    font-size: 1rem;
+  }
+
+  .footer-links {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

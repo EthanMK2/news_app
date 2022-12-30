@@ -54,9 +54,9 @@ p {
 .email-input {
   width: 80%;
   padding: 0.5rem;
-  border-radius: 10px;
+  border-radius: 20px;
   border: solid;
-  border-width: 1px;
+  border-width: 0px;
   outline: none;
   margin-bottom: 1rem;
   margin-right: 2rem;
@@ -66,9 +66,9 @@ p {
 .password-input {
   width: 80%;
   padding: 0.5rem;
-  border-radius: 10px;
+  border-radius: 20px;
   border: solid;
-  border-width: 1px;
+  border-width: 0px;
   outline: none;
   margin-bottom: 1rem;
   margin-right: 2rem;
