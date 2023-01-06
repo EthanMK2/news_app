@@ -21,6 +21,7 @@
 }
 
 .title {
+  color: black;
 }
 
 .category-container {
@@ -47,6 +48,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .title-div {
+    margin-top: 16.5rem;
+  }
   .category-container {
     display: flex;
     flex-direction: row;

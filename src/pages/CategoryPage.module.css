@@ -22,6 +22,7 @@
 
 .title {
   color: black;
+  font-size: 2rem;
 }
 
 .category-container {
@@ -48,10 +49,19 @@
 }
 
 @media screen and (min-width: 768px) {
+  .title {
+    font-size: 2.6rem;
+  }
+
+  .main {
+    margin-top: 16.5rem;
+  }
+
   .category-container {
     display: flex;
     flex-direction: row;
   }
+
   .card-ul {
     list-style: none;
     padding: 0;
