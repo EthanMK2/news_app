@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import NewsCard from "../UI/NewsCard";
 import Category from "../UI/Category";
 
 import classes from "./SearchResults.module.css";
+import ApiContext from "../store/apiCalls-context";
 
 const SearchResults = (props) => {
   const [newsArray, setNewsArray] = useState([]);
 
-  useEffect(() => {
+  const apiCtx = useContext(ApiContext);
 
+  const searchTitle = props?.searchQuery ? props.searchQuery.replace(/%20/g, " ") : "";
+
+  useEffect(() => {
     const options = {
       method: "GET",
       headers: {
@@ -18,20 +22,24 @@ const SearchResults = (props) => {
       },
     };
 
-    fetch(
+    if (searchTitle === apiCtx?.searchQuery?.name) {
+      setNewsArray(apiCtx.searchQuery.articles);
+    } else {
+      fetch(
         `https://bing-news-search1.p.rapidapi.com/news/search?q=${props.searchQuery}&count=30&freshness=Day&textFormat=Raw&safeSearch=Strict`,
-      options
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        let arr;
-        arr = result.value;
-        setNewsArray(arr);
-        console.log(arr);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+        options
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          let arr;
+          arr = result.value;
+          setNewsArray(arr);
+          apiCtx.update({ name: searchTitle, articles: arr }, true);
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }
   }, [props.searchQuery]);
 
   console.log("mounted");
@@ -66,12 +74,12 @@ const SearchResults = (props) => {
     mainListClasses = `${classes["empty-main"]}`;
   }
 
-  const searchTitle = props.searchQuery.replace(/%20/g, " ")
-
   return (
     <div className={mainListClasses}>
       <div className={classes["title-div"]}>
-        <h2 className={classes.title}>{`Article results for "${searchTitle}"`}</h2>
+        <h2
+          className={classes.title}
+        >{`Article results for "${searchTitle}"`}</h2>
       </div>
       <Category newsList={newsList} />
     </div>

@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import NewsCard from "../UI/NewsCard";
 import Category from "../UI/Category";
 
 import classes from "./CategoryPage.module.css";
+import ApiContext from "../store/apiCalls-context";
 
 const CategoryPage = (props) => {
   const [newsArray, setNewsArray] = useState([]);
+
+  const apiCtx = useContext(ApiContext);
 
   useEffect(() => {
     const options = {
@@ -17,20 +20,30 @@ const CategoryPage = (props) => {
       },
     };
 
-    fetch(
-      `https://bing-news-search1.p.rapidapi.com/news?count=20&offset=0&category=${props.category}&safeSearch=Strict&textFormat=Raw`,
-      options
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        let arr;
-        arr = result.value;
-        setNewsArray(arr);
-        console.log(arr);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
+    if (props.category === apiCtx?.first?.name) {
+      setNewsArray(apiCtx.first.articles);
+    } else if (props.category === apiCtx?.second?.name) {
+      setNewsArray(apiCtx.second.articles);
+      apiCtx.update(
+        { name: props.category, articles: apiCtx.second.articles },
+        false
+      );
+    } else {
+      fetch(
+        `https://bing-news-search1.p.rapidapi.com/news?count=20&offset=0&category=${props.category}&safeSearch=Strict&textFormat=Raw`,
+        options
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          let arr;
+          arr = result.value;
+          setNewsArray(arr);
+          apiCtx.update({ name: props.category, articles: arr }, false)
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    }
   }, [props.category]);
 
   console.log("mounted");
