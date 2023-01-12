@@ -1,7 +1,23 @@
 import classes from "./NewsCard.module.css";
-import placeholerImage from "../assets/images/image_placeholder.png"
+import placeholerImage from "../assets/images/image_placeholder.png";
+import { useContext } from "react";
+import AuthContext from "../store/auth-context";
 
 const NewsCard = (props) => {
+  const authCtx = useContext(AuthContext);
+
+  const postArticle = (data) => {
+    if (authCtx.uid) {
+      fetch(
+        `https://react-http-practice-4c42c-default-rtdb.firebaseio.com/users/${authCtx.uid}.json`,
+        {
+          method: "PUT",
+          body: JSON.stringify({ articles: data }),
+        }
+      );
+    }
+  };
+
   let description = props.description;
 
   if (description.charAt(description.length - 1) !== ".") {
@@ -39,6 +55,18 @@ const NewsCard = (props) => {
     <div
       className={classes.card}
       onClick={() => {
+        const data = {
+          name: props.name,
+          description: props.description,
+          url: props.url
+        };
+        if (JSON.parse(localStorage.getItem("articles"))) {
+          const oldData = JSON.parse(localStorage.getItem("articles"));
+          localStorage.setItem("articles", JSON.stringify([data, ...oldData]));
+        } else {
+          localStorage.setItem("articles", JSON.stringify([data]));
+        }
+        postArticle(JSON.parse(localStorage.getItem("articles")));
         window.open(props.url, "_blank");
       }}
     >

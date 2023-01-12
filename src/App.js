@@ -8,17 +8,20 @@ import NotFound from "./pages/NotFound";
 
 import { Routes, Route, useNavigate } from "react-router-dom";
 import CategoryPage from "./pages/CategoryPage";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import AuthContext from "./store/auth-context";
 
 function App() {
   const [searchText, setSearchText] = useState(null);
   const navigate = useNavigate();
 
+  const authCtx = useContext(AuthContext);
+
   const searchHandler = (text) => {
     setSearchText(text); 
     navigate("/searchresults");
   }
-
+  
   return (
     <>
       <Routes>
@@ -29,7 +32,7 @@ function App() {
         <Route path="/technology" element={<><Header searchHandler={searchHandler} /><CategoryPage category="Technology" /><Footer /></>} />
         <Route path="/sports" element={<><Header searchHandler={searchHandler} /><CategoryPage category="Sports" /><Footer /></>} />
         <Route path="/health" element={<><Header searchHandler={searchHandler} /><CategoryPage category="Health" /><Footer /></>} />
-        <Route path="/profile" element={<><Header searchHandler={searchHandler} /><Profile /><Footer /></>} />
+        <Route path="/profile" element={<><Profile /><Footer /></>} />
         <Route path="/searchresults" element={<><Header searchHandler={searchHandler} /><SearchResults searchQuery={searchText} /><Footer /></>} />
         <Route path="/auth" element={<><AuthPage /><Footer /></>} />
         <Route path="*" element={<NotFound />}/>

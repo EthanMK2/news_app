@@ -20,6 +20,7 @@ const CategoryPage = (props) => {
       },
     };
 
+    // use cached articles if present
     if (props.category === apiCtx?.first?.name) {
       setNewsArray(apiCtx.first.articles);
     } else if (props.category === apiCtx?.second?.name) {

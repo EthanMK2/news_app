@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 let logoutTimer;
 
 const AuthContext = React.createContext({
+  uid: "",
   token: "",
   isLoggedIn: false,
   login: (token) => {},
@@ -45,25 +46,39 @@ export const AuthContextProvider = (props) => {
   }
 
   const [token, setToken] = useState(initialToken);
+  const [uid, setUid] = useState(null);
 
   const userIsLoggedIn = !!token; // use boolean value
 
   const logoutHandler = () => {
     setToken(null);
+    setUid(null);
 
     localStorage.removeItem("token");
     localStorage.removeItem("expirationTime");
+    localStorage.removeItem("articles");
 
     if (logoutTimer) {
       clearTimeout(logoutTimer);
     }
   };
 
-  const loginHandler = (token, expirationTime) => {
+  const loginHandler = (uid, token, expirationTime) => {
     localStorage.setItem("token", token);
     localStorage.setItem("expirationTime", expirationTime);
 
     setToken(token);
+    setUid(uid);
+
+    fetch(
+      `https://react-http-practice-4c42c-default-rtdb.firebaseio.com/users/${uid}/articles.json`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        localStorage.setItem("articles", JSON.stringify(data));
+      });
 
     const remainingTime = calculateRemainingTime(expirationTime);
 
@@ -77,6 +92,7 @@ export const AuthContextProvider = (props) => {
   }, [tokenData]);
 
   const contextValue = {
+    uid: uid,
     token: token,
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
