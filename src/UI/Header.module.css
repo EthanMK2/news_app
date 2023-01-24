@@ -1,7 +1,7 @@
 .header {
   display: flex;
   flex-direction: column;
-  background-color: rgb(62, 62, 62);
+  background-color: #32502E;
 }
 
 .top-header {

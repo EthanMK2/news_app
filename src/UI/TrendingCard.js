@@ -15,7 +15,6 @@ const TrendingCard = (props) => {
         <img src={placeholderImage} className={classes.image} alt="placeholder" />
       )}
       <h3 className={classes.name}>{props.name}</h3>
-      <p className={classes.text}>{props.text}</p>
     </div>
   );
 };

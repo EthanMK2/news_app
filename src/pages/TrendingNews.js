@@ -40,7 +40,6 @@ const HeadlineNews = () => {
         <TrendingCard
           image={story?.image?.url}
           name={story?.name}
-          text={story?.query?.text}
           url={story?.newsSearchUrl}
         />
       </li>
