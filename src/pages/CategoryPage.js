@@ -80,12 +80,12 @@ const CategoryPage = (props) => {
   }
 
   return (
-    <div className={mainListClasses}>
+    <main className={mainListClasses}>
       <div className={classes["title-div"]}>
-        <h2 className={classes.title}>{props.category}</h2>
+        <h1 className={classes.title}>{props.category}</h1>
       </div>
       <Category newsList={newsList} />
-    </div>
+    </main>
   );
 };
 

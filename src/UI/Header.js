@@ -1,4 +1,4 @@
-import { useRef, useContext, useEffect } from "react";
+import { useRef, useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../store/auth-context";
 
@@ -34,7 +34,7 @@ const Header = (props) => {
       <section className={classes["top-header"]}>
         <div className={classes["header-home"]}>
           <Link to="/" className={classes["header-link"]}>
-            <h1>News Website</h1>
+            <h1 className={classes["h1-header"]}>News Website</h1>
           </Link>
         </div>
         {!isLoggedIn ? <div className={classes["profile-links"]}>

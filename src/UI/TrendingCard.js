@@ -3,7 +3,7 @@ import classes from "./TrendingCard.module.css";
 
 const TrendingCard = (props) => {
   return (
-    <div
+    <article
       className={classes.card}
       onClick={() => {
         window.open(props.url, "_blank");
@@ -14,8 +14,8 @@ const TrendingCard = (props) => {
       ) : (
         <img src={placeholderImage} className={classes.image} alt="placeholder" />
       )}
-      <h3 className={classes.name}>{props.name}</h3>
-    </div>
+      <h2 className={classes.name}>{props.name}</h2>
+    </article>
   );
 };
 

@@ -1,3 +1,7 @@
+.h1-header {
+  margin: 0;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -68,11 +72,13 @@ form {
 .header-home {
   list-style: none;
   margin: 0;
+  max-height: 5rem;
 }
 
 .header-link {
   color: white;
   text-decoration: none;
+  max-height: fit-content;
 }
 
 .header-link p {

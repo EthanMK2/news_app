@@ -56,9 +56,9 @@ const HeadlineNews = () => {
   return (
     <>
       <h1 className={classes.title}>Trending News</h1>
-      <div className={mainListClasses}>
+      <main className={mainListClasses}>
         <ul className={classes.list}>{newsList}</ul>
-      </div>
+      </main>
     </>
   );
 };

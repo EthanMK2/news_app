@@ -1,4 +1,4 @@
-footer {
+.footer {
   box-sizing: border-box;
   background: #32502E;
   height: fit-content;
@@ -40,7 +40,7 @@ a:active {
     padding: 0.5rem 0.8rem;
   }
 
-  footer {
+  .footer {
     height: 8rem;
     font-size: 1rem;
   }

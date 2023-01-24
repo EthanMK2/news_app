@@ -52,7 +52,7 @@ const NewsCard = (props) => {
   );
 
   return (
-    <div
+    <article
       className={classes.card}
       onClick={() => {
         const data = {
@@ -71,14 +71,14 @@ const NewsCard = (props) => {
       }}
     >
       {image}
-      <p className={classes.name}>{props.name}</p>
+      <h2 className={classes.name}>{props.name}</h2>
       <hr className={classes.divider} />
       <p className={classes.description}>{description}</p>
-      <div className={classes.provider}>
+      <footer className={classes.provider}>
         {providerImage}
         <span className={classes["provider-name"]}>{props.providerName}</span>
-      </div>
-    </div>
+      </footer>
+    </article>
   );
 };
 

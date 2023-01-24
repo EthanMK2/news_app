@@ -75,14 +75,14 @@ const SearchResults = (props) => {
   }
 
   return (
-    <div className={mainListClasses}>
+    <main className={mainListClasses}>
       <div className={classes["title-div"]}>
-        <h2
+        <h1
           className={classes.title}
-        >{`Article results for "${searchTitle}"`}</h2>
+        >{`Article results for "${searchTitle}"`}</h1>
       </div>
       <Category newsList={newsList} />
-    </div>
+    </main>
   );
 };
 

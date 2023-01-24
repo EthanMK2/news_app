@@ -37,19 +37,19 @@ const Profile = () => {
 
   return (
     <>
-      <div className={classes["home"]}>
+      <header className={classes["home"]}>
         <Link to="/" className={classes["header-link"]}>
           <h1>News Website</h1>
         </Link>
-      </div>
+      </header>
 
-      <div className={classes.main}>
+      <main className={classes.main}>
         {articleHistory && <h1>Article Browsing History</h1>}
         {!articles && (
           <div className={classes["no-history"]}>No Article History</div>
         )}
         <div className={classes["article-history"]}>{articleHistory}</div>
-      </div>
+      </main>
     </>
   );
 };

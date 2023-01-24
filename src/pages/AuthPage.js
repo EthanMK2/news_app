@@ -111,15 +111,15 @@ const AuthPage = () => {
 
   return (
     <>
-      <div className={classes["home"]}>
+      <header className={classes["home"]}>
         <Link to="/" className={classes["header-link"]}>
           <h1>News Website</h1>
         </Link>
-      </div>
+      </header>
 
       <div className={classes["form-div"]}>
         <form className={classes["form"]}>
-          {isLoginForm ? <h2>Login</h2> : <h2>Create Account</h2>}
+          {isLoginForm ? <h1>Login</h1> : <h1>Create Account</h1>}
           <input
             type="email"
             ref={emailRef}
