@@ -44,7 +44,7 @@ const Profile = () => {
       </header>
 
       <main className={classes.main}>
-        {articleHistory && <h1>Article Browsing History</h1>}
+        {articleHistory && <h1 className={classes["history-title"]}>Article Browsing History</h1>}
         {!articles && (
           <div className={classes["no-history"]}>No Article History</div>
         )}
