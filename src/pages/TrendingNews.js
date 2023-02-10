@@ -49,7 +49,7 @@ const HeadlineNews = () => {
   // for loading or when no results appear
   let mainListClasses = `${classes.main}`;
 
-  if (newsList.length < 1) {
+  if (newsList?.length < 1) {
     mainListClasses = `${classes["empty-main"]}`;
   }
 
