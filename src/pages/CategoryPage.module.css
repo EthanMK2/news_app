@@ -1,5 +1,5 @@
 .main {
-  background-color: #fffbda;
+  background-color: #ededed;
   height: 100%;
   text-align: center;
   display: flex;
@@ -8,7 +8,7 @@
 }
 
 .empty-main {
-  background-color: #fffbda;
+  background-color: #ededed;
   height: 100vh;
   text-align: center;
   display: flex;
